@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "test-1/api";
+
+package api;
+
+message GetCodeRequest {
+  string phone = 1;
+}
+
+message GetCodeResponse {
+  string code = 1;
+}
+
+service ApiService {
+  rpc GetCode(GetCodeRequest) returns (GetCodeResponse) {}
+  rpc GetcodeStream(stream GetCodeRequest) returns (stream GetCodeResponse) {}
+}
